@@ -1,0 +1,25 @@
+<div class='container'>
+  <div class='col-md-6 mt-5'>
+<input [(ngModel)]="searchText" placeholder="Search..">
+<table class='table table-condensed mt-3'>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th></th>
+      <th>Name</th>
+      <th>Area</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let emp of employeeData | employeeSearch: searchText; let i=index;">
+      <td>{{i +1}}</td>
+      <td> <input type="checkbox" [checked]="emp.select" (change)="onSelect($event.target.checked, emp)"></td>
+      <td>{{emp.name}}</td>
+      <td>{{emp.area}}</td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+
+</div>
+
